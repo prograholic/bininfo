@@ -5,29 +5,17 @@ project(bininfo)
 
 include(FeatureSummary)
 
-
+find_package(Threads REQUIRED)
 find_package(Boost REQUIRED)
-find_package(GTest)
-#find_package(GMock)
+
 
 add_subdirectory(src)
 
-
-
-
-
-
-
-
-if (GTEST_FOUND)
-  add_subdirectory(tests)
+if (BININFO_DISABLE_TESTING)
+  message(WARNING "Testing disabled")
 else()
-  message(WARNING "Google Test cannot be found, testing disabled")
+  add_subdirectory(tests)
 endif()
-
-
-
-
 
 
 FEATURE_SUMMARY(WHAT ALL)
