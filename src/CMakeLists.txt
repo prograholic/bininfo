@@ -2,7 +2,7 @@
 add_subdirectory(formats)
 
 set(BinInfoSources
-  main.cpp
+  bininfo.cpp
 )
 
 add_executable(bininfo ${BinInfoSources})

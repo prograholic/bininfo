@@ -15,6 +15,11 @@ option(
   gtest_force_shared_crt
   "Use shared (DLL) run-time lib even when Google Test is built as static lib."
   OFF)
+  
+  
+if (MSVC)
+  set(gtest_force_shared_crt ON)
+endif()
 
 option(gtest_build_tests "Build all of gtest's own tests." OFF)
 
