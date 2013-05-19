@@ -1,5 +1,5 @@
-
 add_subdirectory(formats)
+add_subdirectory(common)
 
 set(BinInfoSources
   bininfo.cpp

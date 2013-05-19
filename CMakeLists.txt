@@ -8,8 +8,13 @@ include(FeatureSummary)
 include(GenerateHeaderWithTestData)
 
 find_package(Threads REQUIRED)
-#find_package(Boost REQUIRED)
 
+set(Boost_USE_STATIC_LIBS ON)
+set(Boost_USE_MULTITHREADED ON)
+find_package(Boost REQUIRED)
+include_directories(${Boost_INCLUDE_DIRS})
+
+include_directories(src)
 
 add_subdirectory(src)
 

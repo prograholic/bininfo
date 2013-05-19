@@ -2,6 +2,7 @@
 set(BinInfoFormatsPeSources
   pe_description.cpp
   pe_description.hpp
+  pe_description_internal.hpp
   pe_reader.cpp
   pe_reader.hpp
 )

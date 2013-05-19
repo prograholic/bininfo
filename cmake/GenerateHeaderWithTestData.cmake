@@ -22,7 +22,7 @@ endmacro()
 function(GENERATE_HEADER_WITH_TEST_DATA dir)
 
   message(STATUS "generating header for directory [${dir}] ...")
-  file(GLOB_RECURSE BIN_FILE_LIST "${CMAKE_CURRENT_SOURCE_DIR}/${dir}" "*.bin")
+  file(GLOB_RECURSE BIN_FILE_LIST "${dir}/*.bin")
 
   list(LENGTH BIN_FILE_LIST file_count)
   message(STATUS "  files count: ${file_count}")
@@ -55,8 +55,8 @@ function(GENERATE_HEADER_WITH_TEST_DATA dir)
 	list(REMOVE_AT all_cpp_items 0)
 
 	file(APPEND ${filename}
-	  "  /// All data in one variable (useful for iterating)\n"
-	  "  const char * all_items [] =\n"
+	  "  /// All data in one variable (used in value-parametrized tests)\n"
+	  "  const char * ${local_filename}_all_items [] =\n"
 	  "  {\n"
 	  "    ${first_item}"
 	)
