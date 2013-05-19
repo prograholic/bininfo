@@ -9,8 +9,12 @@ namespace fmt
   {
     namespace msdos
     {
+
+      const common::uint16_t msdos_magic = 0x5A4D;
+
       struct header
       {
+        common::uint16_t e_magic;         // Magic number
         common::uint16_t e_cblp;          // Bytes on last page of file
         common::uint16_t e_cp;            // Pages in file
         common::uint16_t e_crlc;          // Relocations

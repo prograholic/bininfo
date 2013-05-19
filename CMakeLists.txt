@@ -6,6 +6,12 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 
 include(FeatureSummary)
 include(GenerateHeaderWithTestData)
+include(TestBigEndian)
+
+
+
+TEST_BIG_ENDIAN(ENDIANNESS)
+add_definitions(-DBININFO_BIG_ENDIAN=${ENDIANNESS})
 
 find_package(Threads REQUIRED)
 
@@ -21,6 +27,7 @@ add_subdirectory(src)
 if (BININFO_DISABLE_TESTING)
   message(WARNING "Testing disabled")
 else()
+  enable_testing()
   add_subdirectory(tests)
 endif()
 
